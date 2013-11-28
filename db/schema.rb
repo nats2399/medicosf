@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127144251) do
+ActiveRecord::Schema.define(version: 20131128022401) do
 
   create_table "especialidads", force: true do |t|
     t.string   "nombre"
@@ -28,8 +28,12 @@ ActiveRecord::Schema.define(version: 20131127144251) do
     t.string   "reconocimiento"
     t.string   "imagen"
     t.integer  "especialidad_id"
-    t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "created_at"
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
   end
 
 end

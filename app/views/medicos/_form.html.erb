@@ -1,3 +1,5 @@
+<div id="formulario">
+
 <%= form_for(@medico) do |f| %>
   <% if @medico.errors.any? %>
     <div id="error_explanation">
@@ -37,13 +39,17 @@
   </div>
   <div class="field">
     <%= f.label :imagen %><br>
-    <%= f.text_field :imagen %>
+    <%= f.file_field :imagen %>
   </div>
   <div class="field">
     <%= f.label :especialidad_id %><br>
-    <%= f.number_field :especialidad_id %>
+    <%= select_tag "action", options_for_select(["Pediatria", "Calviciatria", "Odontologia", "Oncologia", "Ciruganos", "Cardiologia", "Ginecologia"]) %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+</div>

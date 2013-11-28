@@ -1,44 +1,35 @@
 class MedicosController < ApplicationController
   before_action :set_medico, only: [:show, :edit, :update, :destroy]
 
-  # GET /medicos
-  # GET /medicos.json
+  
   def index
     @medicos = Medico.all
+    @especialidads = Especialidad.all
   end
-
-  # GET /medicos/1
-  # GET /medicos/1.json
+  
   def show
+    @especialidad = Especialidad.find(params[:id]);
+    @medicos = Medicos.select("id, nombres, apellidos, celular, email, curriculum, reconocimiento, imagen").where(:especialidad_id => params[:id]);
   end
 
-  # GET /medicos/new
   def new
     @medico = Medico.new
   end
 
-  # GET /medicos/1/edit
   def edit
   end
 
-  # POST /medicos
-  # POST /medicos.json
   def create
     @medico = Medico.new(medico_params)
 
-    respond_to do |format|
-      if @medico.save
-        format.html { redirect_to @medico, notice: 'Medico was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @medico }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @medico.errors, status: :unprocessable_entity }
-      end
+    if @medico.save()
+      redirect_to medicos_path, :notice => "El medico ha sido insertada";
+    else
+      render "new";
     end
+
   end
 
-  # PATCH/PUT /medicos/1
-  # PATCH/PUT /medicos/1.json
   def update
     respond_to do |format|
       if @medico.update(medico_params)
@@ -51,8 +42,6 @@ class MedicosController < ApplicationController
     end
   end
 
-  # DELETE /medicos/1
-  # DELETE /medicos/1.json
   def destroy
     @medico.destroy
     respond_to do |format|
@@ -62,13 +51,30 @@ class MedicosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_medico
       @medico = Medico.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def medico_params
       params.require(:medico).permit(:nombres, :apellidos, :celular, :email, :curriculum, :reconocimiento, :imagen, :especialidad_id)
     end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end

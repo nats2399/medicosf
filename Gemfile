@@ -6,8 +6,14 @@ gem 'rails', '4.0.0'
 # Use mysql as the database for Active Record
 gem "mysql2", '0.3.11'
 
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'protected_attributes'
+gem 'devise', '3.0.0.rc'
+
+
 group :production do
- gem 'pg'
+	gem 'pg'
 end
 
 gem 'bootstrap-sass', '2.0.0'

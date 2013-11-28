@@ -1,10 +1,12 @@
 Medicosf::Application.routes.draw do
   
-  root :to => ‘medicos#index’
+  root :to => 'medicos#index'
   
   resources :medicos
 
   resources :especialidads
+
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

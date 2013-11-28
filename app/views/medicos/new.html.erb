@@ -1,5 +1,7 @@
-<h1>New medico</h1>
+<% provide(:title,'Nuevo') %>
 
-<%= render 'form' %>
+<div id="formulario">
+	<%= render 'form' %>
+</div>
 
 <%= link_to 'Back', medicos_path %>

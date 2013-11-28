@@ -1,41 +1,83 @@
-<h1>Listing medicos</h1>
+<% provide(:title,'Home') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombres</th>
-      <th>Apellidos</th>
-      <th>Celular</th>
-      <th>Email</th>
-      <th>Curriculum</th>
-      <th>Reconocimiento</th>
-      <th>Imagen</th>
-      <th>Especialidad</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+		<div class="left">
+			<div class="left1">
+				<ul>
 
-  <tbody>
-    <% @medicos.each do |medico| %>
-      <tr>
-        <td><%= medico.nombres %></td>
-        <td><%= medico.apellidos %></td>
-        <td><%= medico.celular %></td>
-        <td><%= medico.email %></td>
-        <td><%= medico.curriculum %></td>
-        <td><%= medico.reconocimiento %></td>
-        <td><%= medico.imagen %></td>
-        <td><%= medico.especialidad_id %></td>
-        <td><%= link_to 'Show', medico %></td>
-        <td><%= link_to 'Edit', edit_medico_path(medico) %></td>
-        <td><%= link_to 'Destroy', medico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+				    <% @especialidads.each do |especialidad| %>
+						
+						<li> <%= link_to especialidad.nombre , medicos_path%> </li>
 
-<br>
+				    <% end %>
 
-<%= link_to 'New Medico', new_medico_path %>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="center">
+			<div class="center1">
+				<p id="titlecenter"></p>
+
+			    <% @medicos.each do |medico| %>
+				<div class="imgs">
+					<p>	
+						<img src="/assets/medicos/dr2.JPG">
+				    </p>
+
+				</div>
+				<% end %>
+
+			</div>
+
+		</div>
+
+
+
+
+
+		<div class="right">
+			
+			<div class="right1">
+				<img src="/assets/medicos/dr2.JPG">
+			</div>
+			
+			<div class="right2">
+				<div class="right21">
+					<table id="tabla">
+					<tr> 
+						<td colspan="2"><p id="fila1"> Datos del profesional </p></td> 
+					</tr>
+					<tr> 
+						<td> Nombre </td> 
+						<td> Dr. Emmsy Mad Hammer </td> 
+					</tr>
+					<tr> 
+						<td> Curriculum </td> 
+						<td> Dr. en Medicina General, Especializaci&oacuten en Ostometr&iacutea y Cirugia reconstructiva </td> 
+					</tr>
+
+					<tr height="102px"> 
+						<td width="25%"> Reconocimientos </td> 
+						<td width="75%">
+							Mejor Cirugano 2012 seg&uacuten <i>Sociedad Internacional de M&eacutedicos Quebrantahuesos</i>
+							<br>
+							Premio al mejor art&iacuteculo "C&oacutemo recuperarse de un salto sin paracaidas".
+							<br>
+							Medalla de oro de la <i>Frankeinstein Royal Society</i>
+							por su trabajo en reconstrucci&oacuten de reinas de belleza sin el uso de Silicona
+						</td> 
+					</tr>
+
+					</table>
+				</div>	
+			</div>
+
+		</div>
+
+
+
+
+
+
+

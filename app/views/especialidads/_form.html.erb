@@ -1,4 +1,4 @@
-<%= form_for(@especialidad) do |f| %>
+<%= form_for(@especialidad, html: {multipart: true}) do |f| %>
   <% if @especialidad.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@especialidad.errors.count, "error") %> prohibited this especialidad from being saved:</h2>
